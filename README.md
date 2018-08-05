@@ -1,15 +1,16 @@
 # Offer RESTful API
 The Offer RESTful API provides a basic RESTful service to manage offers.
-The project is based on the [Spring Boot](https://spring.io/projects/spring-boot) framework which easily allows to create a stand-alone RESTful application with an in-memory persistence repository.
-Once the application is downloaded on a machine the following local endpoint should be available:
+The project is based on the [Spring Boot](https://spring.io/projects/spring-boot) framework which allows to create a stand-alone RESTful application with an in-memory persistence repository.
+
+Once the project is downloaded and built on a machine, on starting the main application the following local endpoint should become available
 [http://localhost:8080/offer/1](http://localhost:8080/offer/1)
-On the same server running the Offer RESTful APIa a basic dedicated [Swagger](https://swagger.io/) page is also presented under
-[http://localhost:8080/swagger-ui.html#/offer-controller](http://localhost:8080/swagger-ui.html#/offer-controller).
+
+On the same server running the Offer RESTful APIa a basic dedicated [Swagger](https://swagger.io/) page is also presented under [http://localhost:8080/swagger-ui.html#/offer-controller](http://localhost:8080/swagger-ui.html#/offer-controller).
 The Swagger page not only provides documentation to the API methods but also is a powerful means to test on-the-fly the API via a browser.
 
 # Offer charactersitics
 A valid offer is specific to one product with a given price.
-A JSON example of another representation follow below.
+A JSON example of an offer representation follows below.
 ```json
 {
   "id": 2,
@@ -24,6 +25,7 @@ The duration of an offer is given by the difference between the end and start da
 In this simple version the granularity of the duration period is in days, and only one timezone is considered.
 An offer is expired if the current date is beyond the end date.
 An offer can be tracked through its identifier when stored in the system.
+In using the RESTful API start and end dates can be specified using the pattern 'yyyyMMdd'.
 
 # Usage
 curl command examples of the API usage from the Swagger page are listed below.
@@ -37,12 +39,19 @@ curl -X GET "http://localhost:8080/offer/1" -H "accept: application/json"
 ```
 3. PUT /offer/{id} Update an offer with a given id
 ```sh
-curl -X PUT "http://localhost:8080/offer/2" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"id\": 2, \"product\": \"test\", \"price\": 400, \"start\": \"2018-09-01\", \"end\": \"2018-10-01\"}"
+curl -X PUT "http://localhost:8080/offer/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"id\": 1, \"product\": \"test\", \"price\": 400, \"start\": \"2018-09-01\", \"end\": \"2018-10-01\"}"
 ```
 4. DELETE /offer/{id} Delete an offer with a given id
 ```sh
 curl -X DELETE "http://localhost:8080/offer/1" -H "accept: application/json"
 ```
+
+# Build the project
+From the source folder of the project you can build a JAR file typing this command
+```sh
+./mvnw clean package
+```
+
 # Basic assumptions
 Security is not required over HTTP.
 Error e message error handling is limited in this current version of the solution.
@@ -54,7 +63,7 @@ Tests are available under
 ```sh
 src/test/java/org/lab/
 ```
-From the source folder of the project you can build the JAR file with
+From the source folder of the project you can build a JAR file typing this command
 ```sh
 ./mvnw clean package
 ```
