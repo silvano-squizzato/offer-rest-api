@@ -87,9 +87,9 @@ OfferUtils Java clas includes methods to validate an offer, check if its duratio
 * @param offer the offer to validate.
 * @return if the offer is valid.
 */
+public static boolean isValid(Offer offer)
 ```
 ```java
-public static boolean isValid(Offer offer)
 /**
  * @param offer the offer.
  * @return true if the period of validity (end - start) is non negative.
