@@ -81,7 +81,7 @@ The controller Java class for the RESTful API is the following
 src/main/java/org/lab/OfferController.java
 ```
 
-OfferUtils Java clas includes methods to validate an offer, check if its duration is valid and determine if an offer is expired.
+OfferUtils Java class includes methods to validate an offer, check if its duration is valid and determine if an offer is expired.
 ```java
 /** An offer is  checked against its constraint annotations and its period of validity.
 * @param offer the offer to validate.
