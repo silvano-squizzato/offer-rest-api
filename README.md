@@ -1,3 +1,4 @@
+public static boolean isValid(Offer offer)
 # Offer RESTful API
 The Offer RESTful API provides a basic RESTful service to manage offers.
 The project is based on the [Spring Boot](https://spring.io/projects/spring-boot) framework which allows to create a stand-alone RESTful application with an in-memory persistence repository.
@@ -25,7 +26,7 @@ The duration of an offer is given by the difference between the end and start da
 In this simple version the granularity of the duration period is in days, and only one timezone is considered.
 An offer is expired if the current date is beyond the end date.
 An offer can be tracked through its identifier when stored in the system.
-In using the RESTful API start and end dates can be specified using the pattern 'yyyyMMdd'.
+In using the RESTful API start and end dates can be specified using the pattern 'yyyy-MM-dd'.
 
 # Usage
 curl command examples of the API usage from the Swagger page are listed below.
@@ -47,16 +48,16 @@ curl -X DELETE "http://localhost:8080/offer/1" -H "accept: application/json"
 ```
 
 # Build the project
-From the source folder of the project you can build a JAR file typing this command
+From the source folder of the project type this command
 ```sh
 ./mvnw clean package
 ```
 
 # Basic assumptions
-Security is not required over HTTP.
-Error e message error handling is limited in this current version of the solution.
-Although it is possible to package this service as a traditional WAR file for deployment to an external application server, a simpler standalone approach has been used for testing.
-Repository persistence is in-memory, when the standalone application stops its content is wiped.
+1. Security is not required over HTTP.
+2. Error and response message handling is limited in this version.
+3. Although it is possible to package this service as a traditional WAR file for deployment to an external application server, a simpler standalone approach has been used for testing.
+4. Repository persistence is in-memory, so when the standalone application stops its content is wiped.
 
 # Development notes
 Tests are available under
@@ -86,9 +87,9 @@ OfferUtils Java clas includes methods to validate an offer, check if its duratio
 * @param offer the offer to validate.
 * @return if the offer is valid.
 */
-public static boolean isValid(Offer offer)
 ```
 ```java
+public static boolean isValid(Offer offer)
 /**
  * @param offer the offer.
  * @return true if the period of validity (end - start) is non negative.
