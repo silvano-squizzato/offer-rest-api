@@ -9,7 +9,7 @@ Once the project is downloaded and built on a machine, on starting the main appl
 On the same server running the Offer RESTful APIa a basic dedicated [Swagger](https://swagger.io/) page is also presented under [http://localhost:8080/swagger-ui.html#/offer-controller](http://localhost:8080/swagger-ui.html#/offer-controller).
 The Swagger page not only provides documentation to the API methods but also is a powerful means to test on-the-fly the API via a browser.
 
-# Offer charactersitics
+# Offer characteristics
 A valid offer is specific to one product with a given price.
 A JSON example of an offer representation follows below.
 ```json
